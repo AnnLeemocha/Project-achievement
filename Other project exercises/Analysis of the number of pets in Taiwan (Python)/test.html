@@ -1,0 +1,1960 @@
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   寵物登記管理資訊網
+  </title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+  <link href="/favicon.ico" rel="shortcut icon"/>
+  <!--   Core JS Files   -->
+  <script async="" src="https://static.getbutton.io/widget-send-button/js/init.js" type="text/javascript">
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+  </script>
+  <script src="/js/core/popper.min.js" type="text/javascript">
+  </script>
+  <script src="/js/core/bootstrap-material-design.min.js" type="text/javascript">
+  </script>
+  <script src="/js/plugins/moment.min.js">
+  </script>
+  <!-- Material Kit CSS -->
+  <link href="/css/material-kit.css?v=2.0.5" rel="stylesheet"/>
+  <link href="/css/style.css" rel="stylesheet"/>
+  <!-- DatePicker CSS -->
+  <link href="/css/jquery-ui.css" rel="stylesheet"/>
+  <!-- basictable CSS -->
+  <link href="/css/basictable.css" rel="stylesheet"/>
+  <link href="/css/style.min.css" rel="stylesheet"/>
+  <!--Javascript Begin-->
+  <script src="../js/common.js?v1">
+  </script>
+  <script src="../js/enumFormat.js">
+  </script>
+  <script src="../js/classFormat.js?v=20220810">
+  </script>
+  <script src="../js/Utilities.js">
+  </script>
+  <script src="../js/Business.js">
+  </script>
+  <script src="../js/jquery.capslockstate.js">
+  </script>
+  <script src="../js/jquery.basictable.min.js">
+  </script>
+  <script src="../js/jquery-ui.js" type="text/javascript">
+  </script>
+  <script src="../js/datepicker-zh-TW.js" type="text/javascript">
+  </script>
+  <script src="../js/session.js">
+  </script>
+  <script src="../js/base64.js">
+  </script>
+  <script src="../js/lockfun.js">
+  </script>
+ </head>
+ <body>
+  <div style="position:absolute;visibility:visible;top:-3000px;left:-3000px;">
+   <form name="_hiddenFrom">
+    <input name="_hiddenText" type="text" value="喔喔!你按Ctrl-A喔!"/>
+   </form>
+  </div>
+  <!--Javascript end-->
+  <!-- Google Tag Manager -->
+  <!-- Live Chat Widget powered by https://keyreply.com/chat/ -->
+  <!-- Advanced options: -->
+  <!-- data-align="left" -->
+  <!-- data-overlay="true" -->
+  <script>
+   $(function () {
+            var explorer = navigator.userAgent;
+            //console.log(explorer);
+            var ISIE = true;
+            if (explorer.indexOf("Firefox") >= 0) {
+                //alert("Firefox");
+                ISIE = false;
+            }
+            else if (explorer.indexOf("Chrome") >= 0) {
+                //alert("Chrome");
+                ISIE = false;
+            }
+            else if (explorer.indexOf("Opera") >= 0) {
+                //alert("Opera");
+                ISIE = false;
+            }
+            else if (explorer.indexOf("Safari") >= 0) {
+                //alert("Safari");
+                ISIE = false;
+            }
+            else if (explorer.indexOf("Netscape") >= 0) {
+                //alert('Netscape');
+                ISIE = false;
+            }
+            else {
+                alert("IE已不再支援新的網路標準，建議使用Google Chrome瀏覽器開啟網頁。");
+                return false;
+            }
+        });
+  </script>
+  <!-- GetButton.io widget -->
+  <script type="text/javascript">
+   (function () {
+            var options = {
+                facebook: "1108170826032702", // Facebook page ID
+                line: "//lin.ee/yhLmCfV", // Line QR code URL
+                call_to_action: "", // Call to action
+                button_color: "#129BF4", // Color of button
+                position: "left", // Position may be 'right' or 'left'
+                order: "line,facebook", // Order of buttons
+            };
+            var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+            s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        })();
+  </script>
+  <!-- /GetButton.io widget -->
+  <script>
+   //(function (i, s, o, g, r, a, m) {
+        //    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        //        (i[r].q = i[r].q || []).push(arguments)
+        //    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        //        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        //})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        //ga('create', 'UA-30971483-1', 'auto');
+        //ga('send', 'pageview');
+
+        $(function () {
+            $("#inputValue").keyup(function (event) {
+                if (event.keyCode === 13) {
+                    $("#btnLogin").click();
+                }
+            });
+        });
+  </script>
+  <!-- End Google Tag Manager -->
+  <style>
+   .LoadingImg {
+            position: fixed;
+            left: calc(50% - 32px);
+            top: 50%;
+            z-index: 99999;
+        }
+
+        .LoadingImg1 {
+            position: fixed;
+            left: calc(50% - 32px);
+            top: 50%;
+            z-index: 99999;
+        }
+
+        .ui-widget-header {
+            border: #5AB02E;
+            background: #5AB02E;
+        }
+
+
+        /*.search-zone {
+            background-color: #5AB02E;
+            text-align: center;
+            padding: 12px 0px;
+            /*display: none;*/
+        z-index: 9999; position: fixed !important; width: 100%; right: 0px; top: 75px;
+        }
+
+        .search-zone label,
+        .search-zone input,
+        .search-zone .keywords {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 1.125rem;
+            line-height: 1.125rem;
+            color: #fff;
+        }
+
+            .search-zone input[type="text"],
+            .mobile-search-zone input[type="text"] {
+                background-color: #fff;
+                margin: 5px;
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                color: #000;
+            }
+
+        */
+  </style>
+  <form action="./O302.aspx?PG=1" id="aspnetForm" method="post">
+   <div class="aspNetHidden">
+    <input id="__VIEWSTATE" name="__VIEWSTATE" type="hidden" value="/wEPDwUKMjA4MzU0MjMxNg9kFgJmD2QWAgIDD2QWAgIBDxYCHgRUZXh0BcQmIDxsaSBjbGFzcz0nbmF2LWl0ZW0gZHJvcGRvd24nPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YSBocmVmPScjJyBjbGFzcz0nbmF2LWxpbmsgZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nIGlkPSduYXZiYXJEcm9wZG93bjEnPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+c2VhcmNoPC9pPiDlr7Xnmbvos4fmlpnmn6XoqaINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudScgYXJpYS1sYWJlbGxlZGJ5PSduYXZiYXJEcm9wZG93bjEnPiA8YSBocmVmID0gJy93ZWIvbzIwMS5hc3B4JyBjbGFzcz0nZHJvcGRvd24taXRlbSc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+PC9pPiDlr7Xnmbvos4fmlpnmn6XoqaINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYT48L3VsPiA8L2xpPiA8bGkgY2xhc3M9J25hdi1pdGVtIGRyb3Bkb3duJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj0nIycgY2xhc3M9J25hdi1saW5rIGRyb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyBpZD0nbmF2YmFyRHJvcGRvd24xJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aSBjbGFzcz0nbWF0ZXJpYWwtaWNvbnMnPnJzc19mZWVkPC9pPiDmnIDmlrDmtojmga8NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudScgYXJpYS1sYWJlbGxlZGJ5PSduYXZiYXJEcm9wZG93bjEnPiA8YSBocmVmID0gJy93ZWIvTzEuYXNweCcgY2xhc3M9J2Ryb3Bkb3duLWl0ZW0nPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aSBjbGFzcz0nbWF0ZXJpYWwtaWNvbnMnPmFycm93X3JpZ2h0PC9pPiDmnIDmlrDmtojmga8NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYT48L3VsPiA8L2xpPiA8bGkgY2xhc3M9J25hdi1pdGVtIGRyb3Bkb3duJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj0nIycgY2xhc3M9J25hdi1saW5rIGRyb3Bkb3duLXRvZ2dsZScgZGF0YS10b2dnbGU9J2Ryb3Bkb3duJyBpZD0nbmF2YmFyRHJvcGRvd24xJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aSBjbGFzcz0nbWF0ZXJpYWwtaWNvbnMnPnBldHM8L2k+IOWvteeJqeWkp+Wwj+S6iw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51JyBhcmlhLWxhYmVsbGVkYnk9J25hdmJhckRyb3Bkb3duMSc+IDxhIGhyZWYgPSAnL3dlYi9vMjAxLmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g5a+155m76LOH5paZ5p+l6KmiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1dlYi9PMjAyLmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g57ay6Lev5paw55Sz6L6mDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1dlYi9PMjAzLmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g6YG65aSx5ZWf5LqLDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1dlYi9PMjA0LmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g5bCL542y5ZWf5LqLDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1dlYi9PMjA1LmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g5a+154mp5LiN6KaL5LqGKOmBuuWkseeUs+WgsSkNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYT4gPGEgaHJlZiA9ICcvV2ViL08yMDYuYXNweCcgY2xhc3M9J2Ryb3Bkb3duLWl0ZW0nPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aSBjbGFzcz0nbWF0ZXJpYWwtaWNvbnMnPmFycm93X3JpZ2h0PC9pPiDlr7Xnianlm57kvobkuoYo6aCY5Zue6Ki76Yq3KQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPjwvdWw+IDwvbGk+IDxsaSBjbGFzcz0nbmF2LWl0ZW0gZHJvcGRvd24nPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YSBocmVmPScjJyBjbGFzcz0nbmF2LWxpbmsgZHJvcGRvd24tdG9nZ2xlJyBkYXRhLXRvZ2dsZT0nZHJvcGRvd24nIGlkPSduYXZiYXJEcm9wZG93bjEnPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+bmV3X3JlbGVhc2VzPC9pPiDlhazplovos4foqIoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPjx1bCBjbGFzcz0nZHJvcGRvd24tbWVudScgYXJpYS1sYWJlbGxlZGJ5PSduYXZiYXJEcm9wZG93bjEnPiA8YSBocmVmID0gJy9XZWIvTzMwMS5hc3B4JyBjbGFzcz0nZHJvcGRvd24taXRlbSc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+YXJyb3dfcmlnaHQ8L2k+IOeZu+iomOapn+ani+afpeipog0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPiA8YSBocmVmID0gJy9XZWIvTzMwMi5hc3B4JyBjbGFzcz0nZHJvcGRvd24taXRlbSc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+YXJyb3dfcmlnaHQ8L2k+IOe4o+W4gueZu+iomOeLgOazgQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPiA8YSBocmVmID0gJy9XZWIvRkFRLmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g5a+154mp55m76KiYRkFRDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1BldHNNYXAvUGV0c01hcC5hc3B4JyBjbGFzcz0nZHJvcGRvd24taXRlbSc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+YXJyb3dfcmlnaHQ8L2k+IOatuOaItue1seioiA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPiA8YSBocmVmID0gJy9XYW5kZXJpbmcvSGVhdE1hcFYxLmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g6YGK6JWp54qs54ax5Y2A5ZyWDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1dlYi9PQ291cnNlLmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g5Lq65ZOh6Kyb57+S6Kqy56iLDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+IDxhIGhyZWYgPSAnL1dlYi9PMzA0LmFzcHgnIGNsYXNzPSdkcm9wZG93bi1pdGVtJz4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5hcnJvd19yaWdodDwvaT4g5qCh54qs5p+l6KmiDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+PC91bD4gPC9saT4gPGxpIGNsYXNzPSduYXYtaXRlbSBkcm9wZG93bic+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxhIGhyZWY9JyMnIGNsYXNzPSduYXYtbGluayBkcm9wZG93bi10b2dnbGUnIGRhdGEtdG9nZ2xlPSdkcm9wZG93bicgaWQ9J25hdmJhckRyb3Bkb3duMSc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGkgY2xhc3M9J21hdGVyaWFsLWljb25zJz5wdWJsaWM8L2k+IOebuOmXnOe2suermemAo+e1kA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2E+PHVsIGNsYXNzPSdkcm9wZG93bi1tZW51JyBhcmlhLWxhYmVsbGVkYnk9J25hdmJhckRyb3Bkb3duMSc+PGxpPjxhIGhyZWYgPSdodHRwczovL2FuaW1hbC5jb2EuZ292LnR3LycgY2xhc3M9J2Ryb3Bkb3duLWl0ZW0nICB0YXJnZXQ9J19ibG9jayc+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpIGNsYXNzPSdtYXRlcmlhbC1pY29ucyc+PC9pPiDli5Xkv53os4foqIrntrINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYT48L2xpPjwvdWw+IDwvbGk+ZGQ15gBUkA4mxTBsmaiJyzhIOW3uDEMtTZIdZzZFqpRINw=="/>
+   </div>
+   <div class="aspNetHidden">
+    <input id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" type="hidden" value="4BDD263B"/>
+   </div>
+   <nav class="navbar navbar-color-on-scroll fixed-top navbar-expand-lg navbar-transparent" color-on-scroll="100">
+    <div class="container">
+     <div class="navbar-translate navbar-logo">
+      <a class="navbar-brand" href="../index.aspx">
+       寵物登記管理資訊網
+      </a>
+      <button aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-toggle="collapse" type="button">
+       <span class="sr-only">
+        Toggle navigation
+       </span>
+       <span class="navbar-toggler-icon">
+       </span>
+       <span class="navbar-toggler-icon">
+       </span>
+       <span class="navbar-toggler-icon">
+       </span>
+      </button>
+     </div>
+     <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown1">
+         <i class="material-icons">
+          search
+         </i>
+         寵登資料查詢
+        </a>
+        <ul aria-labelledby="navbarDropdown1" class="dropdown-menu">
+         <a class="dropdown-item" href="/web/o201.aspx">
+          <i class="material-icons">
+          </i>
+          寵登資料查詢
+         </a>
+        </ul>
+       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown1">
+         <i class="material-icons">
+          rss_feed
+         </i>
+         最新消息
+        </a>
+        <ul aria-labelledby="navbarDropdown1" class="dropdown-menu">
+         <a class="dropdown-item" href="/web/O1.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          最新消息
+         </a>
+        </ul>
+       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown1">
+         <i class="material-icons">
+          pets
+         </i>
+         寵物大小事
+        </a>
+        <ul aria-labelledby="navbarDropdown1" class="dropdown-menu">
+         <a class="dropdown-item" href="/web/o201.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          寵登資料查詢
+         </a>
+         <a class="dropdown-item" href="/Web/O202.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          網路新申辦
+         </a>
+         <a class="dropdown-item" href="/Web/O203.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          遺失啟事
+         </a>
+         <a class="dropdown-item" href="/Web/O204.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          尋獲啟事
+         </a>
+         <a class="dropdown-item" href="/Web/O205.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          寵物不見了(遺失申報)
+         </a>
+         <a class="dropdown-item" href="/Web/O206.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          寵物回來了(領回註銷)
+         </a>
+        </ul>
+       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown1">
+         <i class="material-icons">
+          new_releases
+         </i>
+         公開資訊
+        </a>
+        <ul aria-labelledby="navbarDropdown1" class="dropdown-menu">
+         <a class="dropdown-item" href="/Web/O301.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          登記機構查詢
+         </a>
+         <a class="dropdown-item" href="/Web/O302.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          縣市登記狀況
+         </a>
+         <a class="dropdown-item" href="/Web/FAQ.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          寵物登記FAQ
+         </a>
+         <a class="dropdown-item" href="/PetsMap/PetsMap.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          歸戶統計
+         </a>
+         <a class="dropdown-item" href="/Wandering/HeatMapV1.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          遊蕩犬熱區圖
+         </a>
+         <a class="dropdown-item" href="/Web/OCourse.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          人員講習課程
+         </a>
+         <a class="dropdown-item" href="/Web/O304.aspx">
+          <i class="material-icons">
+           arrow_right
+          </i>
+          校犬查詢
+         </a>
+        </ul>
+       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown1">
+         <i class="material-icons">
+          public
+         </i>
+         相關網站連結
+        </a>
+        <ul aria-labelledby="navbarDropdown1" class="dropdown-menu">
+         <li>
+          <a class="dropdown-item" href="https://animal.coa.gov.tw/" target="_block">
+           <i class="material-icons">
+           </i>
+           動保資訊網
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" data-target="#LoginModal" data-toggle="modal" href="#" id="link_login">
+         <i class="material-icons">
+          settings
+         </i>
+         登入後台
+        </a>
+       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="../PDF/00寵物管理前台操作手冊.pdf" target="_blank">
+         <i class="material-icons">
+          attachment
+         </i>
+         操作手冊
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+   <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5-QOU4tlSOYaUdxUJKoey0GLRh5uw_Hg">
+   </script>
+   <script>
+    param.pageSize = 20;
+        param.currentPage = 1;
+        $(document).ready(function () {
+
+            $('.titlesmall').html('查詢');
+            $('.badge-wrap').hide();
+            BindUI();
+            //Sort();
+            //Delete();
+            //GetUserADDR();
+            $('#CountTown').basictable({
+                breakpoint: 768,
+            });
+
+        });
+        function BindUI() {
+            //查詢事件
+            $('#aSearch').click(function () {
+                $('.badge-wrap').hide();
+                var beforePage = param.currentPage;
+                param.currentPage = 1;
+                SetUrlState('PG', beforePage, param.currentPage, Business);
+                $('#aSearch').prop('disabled', true);
+                //console.log($('input[type=radio][name=animal]:checked').val());
+                $("#CountTown tbody tr").remove();
+                BindData();
+            });
+            /*註冊hideCol函數*/
+            $.fn.hideCol = function (col) {
+                // Make sure col has value     
+                if (!col) { col = 1; }
+                $('tr td:nth-child(' + col + '), tr th:nth-child(' + col + ')', this).hide();/*該欄隱藏*/
+                return this;
+            };
+            /*註冊showCol函數*/
+            $.fn.showCol = function (col) {
+                // Make sure col has value     
+                if (!col) { col = 1; }
+                $('tr td:nth-child(' + col + '), tr th:nth-child(' + col + ')', this).show();/*該欄顯示*/
+                return this;
+            };
+
+        }
+
+        //綁定
+        function BindData() {
+            $('.LoadingImg').show();
+            setTimeout(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "../handler/PostData.ashx",
+                    data: {
+                        Method: "O302",
+                        Param: JSON.stringify({
+                            Animal: $('input[type=radio][name=animal]:checked').val(),
+                            SDATE: $('#txtSDATE').val(),
+                            EDATE: $('#txtEDATE').val(),
+                        }),
+                    },
+                    //data: JSON.stringify({
+                    //    'Method': 'O301',
+                    //    'action': 'GetStation',
+                    //    'CountyID': $('#S_ddlCounty').val(),
+                    //    'TownID': $('#S_ddlTown').val(),
+                    //    'UserName': $('#S_txtUserName').val(),
+                    //    'pageSize': param.pageSize,
+                    //    'currentPage': param.currentPage
+                    //}),
+                    //contentType: "application/json", //data一定要用JSON.stringify()序列化
+                    //dataType: "json",
+                    cache: false, async: false,
+                    success: function (Result) {
+                        var obj = JSON.parse(Result);
+                        //定義容器
+                        var dal = new cs.PostResult();
+                        //給值
+                        dal.ini(obj);
+                        if (dal.Success) {
+                            var json = JSON.parse(dal.Message);
+                            //$("#CountTown tbody tr").remove();
+                            param.currentPageSize = 1;
+                            param.totalSize = dal.RowCount;
+                            var dal = new cs.O302;
+                            var dalS = new cs.O302Sum;
+                            for (var key in json) {
+                                dal.ini(json[key]);
+                                $("#CountTown").append("<tr id='tr_" + key + "'>"
+                                    + "<td data-th='縣市'><a href='void(0);' class='CountySpan'  id='" + dal.AreaID + "'> " + dal.AreaName + "</a></td>"
+                                    + "<td data-th='鄉鎮'>" + dal.AreaName + "</td>"
+                                    + "<td data-th='登記單位數'>" + dal.fld01 + "</td>"
+                                    + "<td data-th='登記數(A)'>" + dal.fld02 + " </td>"
+                                    + "<td data-th='除戶數(B)'>" + dal.fld03 + "</td>"
+                                    + "<td data-th='轉讓數(C)'>" + dal.fld05 + "</td>"
+                                    + "<td data-th='變更數(D)'>" + dal.fld06 + "</td>"
+                                    + "<td data-th='絕育數(E)'>" + dal.fld04 + "</td>"
+                                    + "<td data-th='絕育除戶數(F)'>" + dal.fld08 + "</td>"
+                                    + "<td data-th='免絕育數(G)'>" + dal.fld07 + "</td>"
+                                    + "<td data-th='免絕育除戶數(H)'>" + dal.fld10 + "</td>"
+                                    + "<td data-th='絕育率(E-F)/(A-B)'>" + (((dal.fld04 - dal.fld08) / (dal.fld02 - dal.fld03)) * 100.0).toFixed(2) + "</td>"
+                                    + "<td data-th='繁殖管理率(E-F)+(G-H)/(A-B)'>" + ((((dal.fld04 - dal.fld08) + (dal.fld07 - dal.fld10)) / (dal.fld02 - dal.fld03)) * 100.0).toFixed(2) + "</td>"
+                                    + "</tr>");
+                                dalS.fld01 += parseInt(dal.fld01);
+                                dalS.fld02 += parseInt(dal.fld02);
+                                dalS.fld03 += parseInt(dal.fld03);
+                                dalS.fld04 += parseInt(dal.fld04);
+                                dalS.fld05 += parseInt(dal.fld05);
+                                dalS.fld06 += parseInt(dal.fld06);
+                                dalS.fld07 += parseInt(dal.fld07);
+                                dalS.fld08 += parseInt(dal.fld08);
+                                dalS.fld10 += parseInt(dal.fld10);
+                            }
+                            //加總
+                            $("#CountTown").append("<tr id='tr_Sum'>"
+                                + "<td data-th='合計'>合計</td>"
+                                + "<td data-th='合計'>-</td>"
+                                + "<td data-th='登記單位數'>" + dalS.fld01 + "</td>"
+                                + "<td data-th='登記數(A)'>" + dalS.fld02 + " </td>"
+                                + "<td data-th='除戶數(B)'>" + dalS.fld03 + "</td>"
+                                + "<td data-th='轉讓數(C)'>" + dalS.fld05 + "</td>"
+                                + "<td data-th='變更數(D)'>" + dalS.fld06 + "</td>"
+                                + "<td data-th='絕育數(E)'>" + dalS.fld04 + "</td>"
+                                + "<td data-th='絕育除戶數(F)'>" + dalS.fld08 + "</td>"
+                                + "<td data-th='免絕育數(G)'>" + dalS.fld07 + "</td>"
+                                + "<td data-th='免絕育除戶數(H)'>" + dalS.fld10 + "</td>"
+                                + "<td data-th='絕育率'>" + (((dalS.fld04 - dalS.fld08) / (dalS.fld02 - dalS.fld03)) * 100.0).toFixed(2) + "</td>"
+                                + "<td data-th='繁殖管理率'>" + ((((dalS.fld04 - dalS.fld08) + (dalS.fld07 - dalS.fld10)) / (dalS.fld02 - dalS.fld03)) * 100.0).toFixed(2) + "</td>"
+                                + "</tr>");
+
+                            $(".CountySpan").click(function (event) {
+                                //終止預設行為
+                                event.preventDefault();
+                                //終止事件傳導
+                                event.stopPropagation();
+                                //console.log($(this)[0]["id"] + '_' + $(this).html());
+                                BindDataCounty($(this)[0]["id"]);
+                            });
+                            $('#Substandard').html('最後統計日:' + dal.QueryDT);
+                            $('#CountTown').hideCol(2);
+                            $('#CountTown').showCol(1);
+                            $('.badge-wrap').show();
+                        }
+                        else {
+                            if (dal.ErrorMessage != "驗證失敗") { alert((dal.ErrorMessage != "" ? dal.ErrorMessage : dal.Message)); } else { location.href = localStorage.getItem('SystemHomePage'); }
+                            $('.LoadingImg').fadeOut('400');
+                            $("#USER tbody tr").remove();
+                        }
+                    },
+                    complete: function () {
+                        $('.LoadingImg').fadeOut('400');
+                        $('#aSearch').prop('disabled', false);
+                    }
+                }).fail(function () {
+                    alert('查詢失敗');
+                    $('.LoadingImg').fadeOut('400');
+                    $('#aSearch').prop('disabled', false);
+                });
+            }, 1000);
+
+        };
+        //綁定
+        function BindDataCounty(countyid) {
+            $('.LoadingImg').show();
+            $("#CountTown tbody tr").remove();
+            setTimeout(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "../handler/PostData.ashx",
+                    data: {
+                        Method: "O302C",
+                        Param: JSON.stringify({
+                            CountyID: countyid,
+                            Animal: $('input[type=radio][name=animal]:checked').val(),
+                            SDATE: $('#txtSDATE').val(),
+                            EDATE: $('#txtEDATE').val(),
+                        }),
+                    },
+                    cache: false, async: false,
+                    success: function (Result) {
+                        var obj = JSON.parse(Result);
+                        //定義容器
+                        var dal = new cs.PostResult();
+                        //給值
+                        dal.ini(obj);
+                        if (dal.Success) {
+                            var json = JSON.parse(dal.Message);
+
+                            param.currentPageSize = 1;
+                            param.totalSize = dal.RowCount;
+                            var dal = new cs.O302;
+                            var dalS = new cs.O302Sum;
+                            for (var key in json) {
+                                dal.ini(json[key]);
+                                $("#CountTown").append("<tr id='tr_" + key + "'>"
+                                    + "<td data-th='縣市'><a href='void(0);' class='CountySpan'  id='" + dal.AreaID + "'> " + dal.AreaName + "</a></td>"
+                                    + "<td data-th='鄉鎮'>" + dal.AreaName + "</td>"
+                                    + "<td data-th='登記單位數'>" + dal.fld01 + "</td>"
+                                    + "<td data-th='登記數(A)'>" + dal.fld02 + " </td>"
+                                    + "<td data-th='除戶數(B)'>" + dal.fld03 + "</td>"
+                                    + "<td data-th='轉讓數(C)'>" + dal.fld05 + "</td>"
+                                    + "<td data-th='變更數(D)'>" + dal.fld06 + "</td>"
+                                    + "<td data-th='絕育數(E)'>" + dal.fld04 + "</td>"
+                                    + "<td data-th='絕育除戶數(F)'>" + dal.fld08 + "</td>"
+                                    + "<td data-th='免絕育數(G)'>" + dal.fld07 + "</td>"
+                                    + "<td data-th='免絕育除戶數(H)'>" + dal.fld10 + "</td>"
+                                    + "<td data-th='絕育率(E-F)/(A-B)'>" + (((dal.fld04 - dal.fld08) / (dal.fld02 - dal.fld03)) * 100.0).toFixed(2) + "</td>"
+                                    + "<td data-th='繁殖管理率(E-F)+(G-H)/(A-B)'>" + ((((dal.fld04 - dal.fld08) + (dal.fld07 - dal.fld10)) / (dal.fld02 - dal.fld03)) * 100.0).toFixed(2) + "</td>"
+                                    + "</tr>");
+                                dalS.fld01 += parseInt(dal.fld01);
+                                dalS.fld02 += parseInt(dal.fld02);
+                                dalS.fld03 += parseInt(dal.fld03);
+                                dalS.fld04 += parseInt(dal.fld04);
+                                dalS.fld05 += parseInt(dal.fld05);
+                                dalS.fld06 += parseInt(dal.fld06);
+                                dalS.fld07 += parseInt(dal.fld07);
+                                dalS.fld08 += parseInt(dal.fld08);
+                                dalS.fld10 += parseInt(dal.fld10);
+                            }
+                            //加總
+                            $("#CountTown").append("<tr id='tr_Sum'>"
+                                + "<td data-th='合計'>合計</td>"
+                                + "<td data-th='合計'>合計</td>"
+                                + "<td data-th='登記單位數'>" + dalS.fld01 + "</td>"
+                                + "<td data-th='登記數(A)'>" + dalS.fld02 + " </td>"
+                                + "<td data-th='除戶數(B)'>" + dalS.fld03 + "</td>"
+                                + "<td data-th='轉讓數(C)'>" + dalS.fld05 + "</td>"
+                                + "<td data-th='變更數(D)'>" + dalS.fld06 + "</td>"
+                                + "<td data-th='絕育數(E)'>" + dalS.fld04 + "</td>"
+                                + "<td data-th='絕育除戶數(F)'>" + dalS.fld08 + "</td>"
+                                + "<td data-th='免絕育數(G)'>" + dalS.fld07 + "</td>"
+                                + "<td data-th='免絕育除戶數(H)'>" + dalS.fld10 + "</td>"
+                                + "<td data-th='絕育率'>" + (((dalS.fld04 - dalS.fld08) / (dalS.fld02 - dalS.fld03)) * 100.0).toFixed(2) + "</td>"
+                                + "<td data-th='繁殖管理率'>" + ((((dalS.fld04 - dalS.fld08) + (dalS.fld07 - dalS.fld10)) / (dalS.fld02 - dalS.fld03)) * 100.0).toFixed(2) + "</td>"
+                                + "</tr>");
+                            $('#Substandard').html('最後統計日:' + dal.QueryDT);
+                            $('#CountTown').hideCol(1);
+                            $('#CountTown').showCol(2);
+                            $('.badge-wrap').show();
+                        }
+                        else {
+                            if (dal.ErrorMessage != "驗證失敗") { alert((dal.ErrorMessage != "" ? dal.ErrorMessage : dal.Message)); } else { location.href = localStorage.getItem('SystemHomePage'); }
+                            $('.LoadingImg').fadeOut('400');
+                            $("#USER tbody tr").remove();
+                        }
+                    },
+                    complete: function () {
+                        $('.LoadingImg').fadeOut('400');
+                        $('#aSearch').prop('disabled', false);
+                    }
+                }).fail(function () {
+                    alert('查詢失敗');
+                    $('.LoadingImg').fadeOut('400');
+                    $('#aSearch').prop('disabled', false);
+                });
+            }, 1000);
+        }
+   </script>
+   <div class="page-header header-filter" data-parallax="true" style='background-image: url("/img/banner-f.jpg"); transform: translate3d(0px, 20px, 0px);'>
+   </div>
+   <div class="main main-raised">
+    <div class="container">
+     <section class="card-text-list wrapper">
+      <div class="major-title">
+       <img src="/img/title-line-left.png"/>
+       <h2>
+        登記狀況
+       </h2>
+       <img src="/img/title-line-right.png"/>
+       <p id="Substandard">
+       </p>
+      </div>
+      <div class="formbar-wrap">
+       <div class="row">
+        <div class="col-lg-12">
+         <div class="row">
+          <div class="col-sm-2">
+           <div class="form-group">
+            作業時間
+           </div>
+          </div>
+          <div class="col-lg-4">
+           <input class="form-control-input form-input-date datetimepicker hasDatepicker" id="txtSDATE" maxlength="10" name="form-input" type="text" value=""/>
+           ~
+           <input class="form-control-input form-input-date datetimepicker hasDatepicker" id="txtEDATE" maxlength="10" name="form-input" type="text" value=""/>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-sm-2">
+           <div class="form-group">
+            動物類別
+           </div>
+          </div>
+          <div class="col-sm-1">
+           <div class="form-group">
+            <div class="form-check">
+             <label class="form-check-label">
+              <input checked="" class="form-check-input" id="All" name="animal" type="radio" value=""/>
+              全部
+              <span class="circle">
+               <span class="check">
+               </span>
+              </span>
+             </label>
+            </div>
+           </div>
+          </div>
+          <div class="col-sm-1">
+           <div class="form-group">
+            <div class="form-check">
+             <label class="form-check-label">
+              <input class="form-check-input" id="Dog" name="animal" type="radio" value="0"/>
+              狗
+              <span class="circle">
+               <span class="check">
+               </span>
+              </span>
+             </label>
+            </div>
+           </div>
+          </div>
+          <div class="col-sm-1">
+           <div class="form-group">
+            <div class="form-check">
+             <label class="form-check-label">
+              <input class="form-check-input" id="Cat" name="animal" type="radio" value="1"/>
+              貓
+              <span class="circle">
+               <span class="check">
+               </span>
+              </span>
+             </label>
+            </div>
+           </div>
+          </div>
+          <div class="col-sm-2">
+           <div class="form-group">
+            <input class="btn btn-round btn-success btn-sm" disabled="" id="aSearch" type="button" value="查詢"/>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="badge-wrap" style="display: none;">
+       <span class="badge">
+        <i class="material-icons">
+         label_important
+        </i>
+        動物登記日期
+       </span>
+       <span class="badge">
+        <i class="material-icons">
+         label_important
+        </i>
+        登記數(A)為飼主戶籍
+       </span>
+       <span class="badge">
+        <i class="material-icons">
+         label_important
+        </i>
+        轉讓數(C)為轉出飼主戶籍
+       </span>
+      </div>
+      <table class="table table-bordered table-g13" id="CountTown">
+       <thead>
+        <tr>
+         <th>
+          縣市
+         </th>
+         <th>
+          鄉鎮
+         </th>
+         <th>
+          登記單位數
+         </th>
+         <th>
+          登記數(A)
+         </th>
+         <th>
+          除戶數(B)
+         </th>
+         <th>
+          轉讓數(C)
+         </th>
+         <th>
+          變更數(D)
+         </th>
+         <th>
+          絕育數(E)
+         </th>
+         <th>
+          絕育除戶數(F)
+         </th>
+         <th>
+          免絕育數(G)
+         </th>
+         <th>
+          免絕育除戶數(H)
+         </th>
+         <th>
+          絕育率
+          <br/>
+          (E-F)/(A-B)
+         </th>
+         <th>
+          繁殖管理率
+          <br/>
+          (E-F)+(G-H)/(A-B)
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+       </tbody>
+      </table>
+     </section>
+    </div>
+   </div>
+   <!-- Classic Modal -->
+   <div class="modal fade" id="LoginModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog loginbox" role="document">
+     <div class="modal-content">
+      <div class="modal-header">
+       <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+        <i class="material-icons">
+         clear
+        </i>
+       </button>
+      </div>
+      <div class="modal-body">
+       <div class="loginbox-header">
+        <h3>
+         登入後台
+        </h3>
+       </div>
+       <div class="loginbox-body">
+        <div class="form-group bmd-form-group">
+         <div class="input-group">
+          <div class="input-group-prepend">
+           <span class="input-group-text">
+            <i class="material-icons">
+             account_circle
+            </i>
+           </span>
+          </div>
+          <input class="form-control" id="txtUser" maxlength="10" placeholder="帳號" type="text" value=""/>
+         </div>
+        </div>
+        <!--/.form-group-->
+        <div class="form-group bmd-form-group">
+         <div class="input-group">
+          <div class="input-group-prepend">
+           <span class="input-group-text">
+            <i class="material-icons">
+             lock
+            </i>
+           </span>
+          </div>
+          <input class="form-control" id="txtUserPWD" maxlength="30" placeholder="密碼" type="password" value=""/>
+          <label>
+           <i class="material-icons" id="lbUserPWD" style="color: silver">
+            visibility_off
+           </i>
+          </label>
+         </div>
+        </div>
+        <div class="form-group">
+         <span class="input-group-text">
+          <i class="material-icons">
+           warning
+          </i>
+          驗證碼:
+          <input id="inputValue" maxlength="6" name="checknum" style="width: 80px;" type="text"/>
+          <img height="40" id="vimg" onclick="changeCode()" src="/handler/DynamicVerification.ashx" title="看不清楚??  點擊刷新驗證碼" width="160"/>
+         </span>
+        </div>
+        <div class="form-group">
+         <span class="input-group-text">
+          <span id="reciprocal">
+           119 秒後變更驗證碼
+          </span>
+         </span>
+        </div>
+        <!--/.form-group-->
+       </div>
+       <!--/.loginbox-body -->
+      </div>
+      <!--/.modal-body -->
+      <div class="modal-footer" style="justify-content: center;">
+       <input class="btn btn-round btn-success" id="btnLogin" type="button" value="登入"/>
+       <input class="btn btn-round btn-warning" data-target="#ForgetPWModal" data-toggle="modal" id="btnForgetPW" type="button" value="重設密碼"/>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="modal fade" id="ForgetPWModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog loginbox" role="document">
+     <div class="modal-content">
+      <div class="modal-header">
+       <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+        <i class="material-icons">
+         clear
+        </i>
+       </button>
+      </div>
+      <div class="modal-body">
+       <div class="loginbox-header">
+        <h3>
+         登入後台
+        </h3>
+       </div>
+       <div class="loginbox-body">
+        <div class="form-group bmd-form-group">
+         <div class="input-group">
+          <div class="input-group-prepend">
+           <span class="input-group-text">
+            <i class="material-icons">
+             account_circle
+            </i>
+           </span>
+          </div>
+          <input class="form-control" id="logUserID" placeholder="帳號" type="text" value=""/>
+         </div>
+        </div>
+        <div class="form-group bmd-form-group">
+         <div class="input-group">
+          <div class="input-group-prepend">
+           <span class="input-group-text">
+            <i class="material-icons">
+             email
+            </i>
+           </span>
+          </div>
+          <input class="form-control" id="logEmail" placeholder="電子信箱" type="text" value=""/>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="modal-footer" style="justify-content: center;">
+       <a class="btn btn-round btn-success" href="#" id="btnSendMail">
+        送出驗證信
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- 選擇登入介面 -->
+   <div class="modal fade" id="ShowAlertModal" role="dialog" style="overflow: auto;" tabindex="-1">
+    <div class="modal-dialog loginbox" role="document" style="max-width: 1400px;">
+     <div class="modal-content">
+      <div class="white">
+       <div class="top">
+        <div class="left">
+         <img src="../img/dog_PNG2437.png"/>
+        </div>
+        <div class="right">
+         <div id="ShowAlert">
+         </div>
+         <!-- 驗證通過！您的角色為
+                                    <span>網站管理員，</span> -->
+         請選擇欲登入的系統
+         <span class="arrow">
+          ▼
+         </span>
+         <br/>
+         如未自動跳轉,請點選此
+         <a href="Admin/LogonIndex.aspx">
+          連結
+         </a>
+        </div>
+       </div>
+       <div class="bottom" id="logInarea">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!--  End Modal -->
+   <footer class="footer footer-default">
+    <div class="container clearfix">
+     <div class="float-left">
+      <div class="qrcode">
+       <img alt="" src="/img/qr_ioi.png"/>
+      </div>
+      <ul>
+       <li>
+        系統諮詢時間：上班日 上午08:30至12:30、13:30至17:30
+       </li>
+       <li>
+        系統服務專線：02-23831698
+       </li>
+       <li>
+        系統線上客服：
+        <a href="https://lin.ee/yhLmCfV" style="color: white" target="_blank">
+         @Line
+        </a>
+       </li>
+       <li>
+        瀏覽人數：
+        <span id="lblcount">
+         2655005
+        </span>
+       </li>
+      </ul>
+     </div>
+     <!--./float-left-->
+     <div class="float-right">
+      <ul>
+       <li>
+        <span>
+         輔導單位
+        </span>
+        <a href="https://www.coa.gov.tw/" target="_blank">
+         <img alt="行政院農業委員會" src="/img/logo_coa.png"/>
+        </a>
+       </li>
+       <li>
+        <span>
+         執行單位
+        </span>
+        <a href="http://enrf.com.tw/" target="_blank">
+         <img alt="豐田生技資訊股份有限公司" src="/img/logo_cropped.png"/>
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!--./float-right-->
+    </div>
+    <div class="container-fluid copyright">
+     行政院農委會 版權所有 2019 COA All Righits Reserved.
+     <span id="CurrentPosition" style="color: red;">
+     </span>
+    </div>
+   </footer>
+   <div class="LoadingImg" style="">
+    <img src="/images/loader.gif"/>
+   </div>
+   <div class="LoadingImg1" style="display: none;">
+    <img src="/images/Spinner-1s-200px.gif"/>
+   </div>
+   <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+   <!--  <script src="/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script> -->
+   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+   <script src="/js/plugins/nouislider.min.js" type="text/javascript">
+   </script>
+   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+   <script src="/js/material-kit.js?v=2.0.5" type="text/javascript">
+   </script>
+   <script>
+    $(document).ready(function () {
+                //carousel
+                $('.carousel').carousel({
+                    interval: false,
+                    wrap: false
+                })
+
+                setTimeout(function () {
+                    //$('.wh-widget-send-button-get-button').remove();
+                }, 3000);
+
+                var ReciprocalID = setInterval(function () { Reciprocal() }, 1000);
+                count();
+                checkbrowser();
+                $(".datetimepicker").datepicker({
+                    showButtonPanel: true,
+                    changeMonth: true,
+                    changeYear: true,
+                    closeText: '取消',
+                    onClose: function (dateText, inst) {
+                        if ($(window.event.srcElement).hasClass('ui-datepicker-close')) {
+                            $(this).val('');
+                        }
+                    }
+                });
+
+
+                $('#txtUser').focusout(function () {
+                    if ($.trim($(this).val()).length > 0) {
+                        if ($('#lblDBChkUid').length > 0) $('#lblDBChkUid').remove();
+                        $('#btnLogin').removeAttr("disabled");
+                    }
+                });
+
+                //判斷是否為寵物飼主登入                    
+                let urlParams = new URLSearchParams(window.location.search);
+                var _FDR = (urlParams.get('t') == 'fdr');
+                if (_FDR) {
+                    $('a#link_login').click();
+                    $('div.loginbox-header H3')[1].innerText = "寵物飼主";
+                    $('input#txtUser')[0].placeholder = "身分證字號";
+                    $('input#txtUserPWD')[0].placeholder = "Email";
+                    $('input#btnForgetPW').hide();
+                }
+                else {
+                    $('div.loginbox-header H3')[1].innerText = "登入後台";
+                    $('input#txtUser')[0].placeholder = "帳號";
+                    $('input#txtUserPWD')[0].placeholder = "密碼";
+                    $('input#btnForgetPW').show();
+                }
+
+                //點擊登入後台
+                $('a#link_login').click(function () {
+                    $('div.loginbox-header H3')[1].innerText = "登入後台";
+                    $('input#txtUser')[0].placeholder = "帳號";
+                    $('input#txtUserPWD')[0].placeholder = "密碼";
+                    $('input#btnForgetPW').show();
+                });
+
+                $('#btnLogin').click(function () {
+                    if ($('#lblDBChkUid').length > 0) $('#lblDBChkUid').remove();
+                    $('#btnLogin').attr('disabled', true);
+                    $('#btnForgetPW').attr('disabled', true);
+
+                    var uid = $('#txtUser').val();
+                    $('#lblDBChkUid').remove();
+                    if ($.trim(uid).length == 0) {
+                        $('<span id ="lblDBChkUid" style=\"color:red;font-size:0.5em;\">請輸入帳號</span>').insertAfter($('#txtUser'));
+                        $('#btnForgetPW').removeAttr("disabled");
+                    }
+                    else {
+                        $('.LoadingImg').show();
+                        setTimeout(function () {
+                            localStorage.clear();
+
+                            var _Method = "LoginChk";
+                            //判斷是否為寵物飼主登入          
+                            if (_FDR) {
+                                _Method = "FDRLoginChk";
+                            }
+                            $.ajax({
+                                type: "POST",
+                                url: '../Handler/LoginFunc.ashx',
+                                data: {
+                                    Method: _Method,//判斷是否為寵物飼主登入
+                                    Param: JSON.stringify({
+                                        UserID: FormateToBase64string($.trim($('#txtUser').val())),
+                                        UserPwD: FormateToBase64string($.trim($('#txtUserPWD').val())),
+                                        textvalue: $.trim($('#inputValue').val()),
+                                    }),
+                                },
+                                cache: false, async: false,
+                                //contentType: "application/json",
+                                success: function (Result) {
+                                    var obj = JSON.parse(Result);
+                                    //定義容器
+                                    var dal = new cs.PostResult();
+                                    //給值
+                                    dal.ini(obj);
+                                    if (dal.Success) {
+
+                                        //判斷是否為寵物飼主登入
+                                        if (_FDR) {
+                                            location.href = "/web2/index.aspx";
+                                            return false;
+                                        }
+
+                                        if (dal.KeyNo == 20) {
+                                            //特寵業者登入就直接進到特寵頁
+                                            location.href = "/PetBusiness/PetBusinessIndex.aspx";
+                                        }
+                                        else {
+                                            $('#LoginModal').modal("hide");
+                                            let ReturnMsg = dal.Message.split("_");
+                                            let autoRedirectsec = 6; //等待秒數
+                                            let ShowAlertStr = '驗證通過，' + ReturnMsg[0];
+                                            let item = '';
+
+                                            if (!isEmptyOrNull(ReturnMsg[1])) {
+                                                let Jsonstr = JSON.parse(base64.decode(ReturnMsg[1]));
+                                                if (Jsonstr.length == 1) {
+                                                    location.href = '/' + Jsonstr[0].HomePage;//只能登入一個網站直接跳轉
+                                                    return false;
+                                                }
+                                                for (let i in Jsonstr) {
+                                                    item += `<a class="item ${Jsonstr[i].sort == "999" ? "defult" : ""}" href="/${Jsonstr[i].HomePage}" ><img src="/img/${Jsonstr[i].sort}.png" alt="" srcset=""><div class="title">${Jsonstr[i].SN}</div></a>`
+                                                }
+                                            }
+                                            $('#ShowAlert').html(ShowAlertStr);
+                                            $('#logInarea').html(item);
+                                            $('#ShowAlertModal').modal("show");
+
+                                            clearInterval(ReciprocalID);
+                                            if (Session.get("url") != undefined) {
+                                                var url = '../' + Session.get("url");
+                                                location.href = url;
+                                            } else {
+                                                setTimeout(function () {
+                                                    location.href = "/Admin/LogonIndex.aspx?logincheck=y";
+                                                }, 1000 * autoRedirectsec);
+                                            }
+                                        }
+
+                                    }
+                                    else {
+                                        alert(dal.ErrorMessage);
+                                        changeCode();//強制刷驗證碼
+                                    }
+                                },
+                                complete: function () {
+                                    $('.LoadingImg').fadeOut('400');
+                                    $('#btnLogin').removeAttr("disabled");
+                                    $('#btnForgetPW').removeAttr("disabled");
+                                }
+                            }).fail(function () {
+                                alert('驗證失敗Err!!!!');
+                                changeCode();//強制刷驗證碼
+                                $('.LoadingImg').fadeOut('400');
+                                $('#btnLogin').removeAttr("disabled");
+                                $('#btnForgetPW').removeAttr("disabled");
+                            });
+                        }, 500);
+                    }
+
+                });
+                //大寫檢查
+                capsLock();
+
+                //重設密碼
+                $('#btnForgetPW').click(function () {
+                    $('#logUserID').val('');
+                    $('#logEmail').val('');
+                });
+                //送出驗證信
+                $('#btnSendMail').click(function () {
+                    if (!Validate()) return false;
+                    $('#btnSendMail').attr('disabled', 'disabled');
+                    $('.LoadingImg').show();
+                    setTimeout(function () {
+                        var dal = {//new cs.LoginFunc;
+                            UserID: $('#logUserID').val().trim(),
+                            Email: $('#logEmail').val().trim(),
+                        }
+                        $.ajax({
+                            type: "Post",
+                            url: '../handler/LoginFunc.ashx',
+                            data: { Method: 'MailValidate', Param: JSON.stringify(dal) },
+                            cache: false, async: false,
+                            //contentType: "application/json",
+                            success: function (Result) {
+                                var obj = JSON.parse(Result);
+                                //定義容器
+                                var dal = new cs.PostResult();
+                                //給值
+                                dal.ini(obj);
+                                if (dal.Success) {
+                                    alert('申請成功，請至電子信箱收取驗證信');
+                                    $('#ForgetPWModal').modal('hide');
+                                }
+                                else {
+                                    alert((dal.ErrorMessage != "" ? dal.ErrorMessage : dal.Message));
+                                }
+                            },
+                            complete: function () {
+                                $('.LoadingImg').fadeOut('400');
+                                //$('#ddlDanger').removeAttr("disabled");
+                                $('#ForgetPWModal').modal('hide');
+                            }
+                        }).fail(function () {
+                            alert('ERROR!!!!');
+                            $('.LoadingImg').fadeOut('400');
+                            $('#ForgetPWModal').modal('hide');
+                        });
+                    }, 50);
+                });
+
+                $('#lbUserPWD').click(function () {
+                    if ($('#txtUserPWD')[0].type == 'text') {
+                        $('#txtUserPWD')[0].type = 'password';
+                        $('#lbUserPWD')[0].innerText = 'visibility_off';
+                    }
+                    else {
+                        $('#txtUserPWD')[0].type = 'text';
+                        $('#lbUserPWD')[0].innerText = 'visibility';
+                    }
+                });
+            });
+            function Validate() {
+                var response = true;
+                var msg = "";
+                if ($('#logUserID').val().trim() == "") {
+                    response = false;
+                    msg += '\n請輸入使用者帳號  ';
+                }
+                if ($('#logEmail').val().trim() == "") {
+                    response = false;
+                    msg += '\n請輸入電子信箱';
+                }
+                if (!response)
+                    alert(msg);
+                return response;
+            }
+            var reflashsec = 121;
+            function changeCode() {
+                var imgNode = document.getElementById("vimg");
+                imgNode.src = "/handler/DynamicVerification.ashx?t=" + (new Date()).valueOf(); // 這裡加時間防止瀏覽器快取
+                reflashsec = 121;
+                $('#inputValue').val('');
+            }
+
+            function Reciprocal() {
+                //reciprocal
+                if (reflashsec == 0) {
+                    reflashsec = 121;
+                    changeCode();
+                }
+                var ReciprocalRange = --reflashsec;
+                //$('#reciprocal').attr('style', 'background-color:black');
+                $('#reciprocal').html(ReciprocalRange + ' 秒後變更驗證碼 ' + (ReciprocalRange % 4 == 0 ? "···" : (ReciprocalRange % 4 == 1 ? "··" : (ReciprocalRange % 4 == 2 ? "·" : ""))));
+            }
+            function count() {
+                var ViewCount = true;
+                if (localStorage.getItem('ViewCount') != null) {
+                    //IP 時間 總數
+                    var json = JSON.parse(localStorage.getItem('ViewCount'));
+                    var QueryDT = json[0]['LastViewDateTime'].replace("T", " ").replace(/\-/g, "/");
+                    var NewDate = new Date();
+                    var bdate = dateUtil.DateTimeFormat(NewDate, 'yyyy/MM/dd');
+                    var btime = dateUtil.DateTimeFormat(NewDate, 'hh:mm:ss');
+                    var Nowdate = bdate + " " + btime;
+                    var PassMin = parseInt(new Date(Nowdate) - new Date(QueryDT.substring(0, 19))) / 1000 / 60;//差幾分鐘
+                    if (PassMin < 10) {
+                        ViewCount = false; //不更新
+                        $('#lblcount').text(json[0].TotalViewCount);
+                    }
+                }
+                if (ViewCount) {
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            'Method': "OCount",
+                            'Param': JSON.stringify({}),
+                        },
+                        url: "/Handler/PostData.ashx",
+                        success: function (data, processStatus, $xhr) {
+                            if (data.Success) {
+                                localStorage.setItem("ViewCount", data.Message);
+                                var json = JSON.parse(data.Message);
+                                $('#lblcount').text(json[0].TotalViewCount);
+
+                            }
+                            else {
+                                $('#lblcount').text("ERROR");
+                            }
+                        }
+                    });
+                }
+            }
+            function checkbrowser() {
+
+                var explorer = navigator.userAgent;
+                //console.log(explorer);
+                var ISIE = true;
+                if (explorer.indexOf("Firefox") >= 0) {
+                    //alert("Firefox");
+                    ISIE = false;
+                }
+                else if (explorer.indexOf("Chrome") >= 0) {
+                    //alert("Chrome");
+                    ISIE = false;
+                }
+                else if (explorer.indexOf("Opera") >= 0) {
+                    //alert("Opera");
+                    ISIE = false;
+                }
+                else if (explorer.indexOf("Safari") >= 0) {
+                    //alert("Safari");
+                    ISIE = false;
+                }
+                else if (explorer.indexOf("Netscape") >= 0) {
+                    //alert('Netscape');
+                    ISIE = false;
+                }
+                else {
+                    alert("IE已不再支援新的網路標準，請改用其他的瀏覽器開啟網頁。");
+                }
+            }
+   </script>
+   <!--Fonts and icons-->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" rel="stylesheet" type="text/css"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/>
+  </form>
+  <div class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" id="ui-datepicker-div" style="position: absolute; top: 294.413px; left: 198.2px; z-index: 4; display: none; opacity: 0.225489;">
+   <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
+    <a class="ui-datepicker-prev ui-corner-all" data-event="click" data-handler="prev" title="&lt;上個月">
+     <span class="ui-icon ui-icon-circle-triangle-w">
+      &lt;上個月
+     </span>
+    </a>
+    <a class="ui-datepicker-next ui-corner-all" data-event="click" data-handler="next" title="下個月&gt;">
+     <span class="ui-icon ui-icon-circle-triangle-e">
+      下個月&gt;
+     </span>
+    </a>
+    <div class="ui-datepicker-title">
+     <select class="ui-datepicker-year" data-event="change" data-handler="selectYear">
+      <option value="1920">
+       1920 (9)
+      </option>
+      <option value="1921">
+       1921 (10)
+      </option>
+      <option value="1922">
+       1922 (11)
+      </option>
+      <option value="1923">
+       1923 (12)
+      </option>
+      <option value="1924">
+       1924 (13)
+      </option>
+      <option value="1925">
+       1925 (14)
+      </option>
+      <option value="1926">
+       1926 (15)
+      </option>
+      <option value="1927">
+       1927 (16)
+      </option>
+      <option value="1928">
+       1928 (17)
+      </option>
+      <option value="1929">
+       1929 (18)
+      </option>
+      <option value="1930">
+       1930 (19)
+      </option>
+      <option value="1931">
+       1931 (20)
+      </option>
+      <option value="1932">
+       1932 (21)
+      </option>
+      <option value="1933">
+       1933 (22)
+      </option>
+      <option value="1934">
+       1934 (23)
+      </option>
+      <option value="1935">
+       1935 (24)
+      </option>
+      <option value="1936">
+       1936 (25)
+      </option>
+      <option value="1937">
+       1937 (26)
+      </option>
+      <option value="1938">
+       1938 (27)
+      </option>
+      <option value="1939">
+       1939 (28)
+      </option>
+      <option value="1940">
+       1940 (29)
+      </option>
+      <option value="1941">
+       1941 (30)
+      </option>
+      <option value="1942">
+       1942 (31)
+      </option>
+      <option value="1943">
+       1943 (32)
+      </option>
+      <option value="1944">
+       1944 (33)
+      </option>
+      <option value="1945">
+       1945 (34)
+      </option>
+      <option value="1946">
+       1946 (35)
+      </option>
+      <option value="1947">
+       1947 (36)
+      </option>
+      <option value="1948">
+       1948 (37)
+      </option>
+      <option value="1949">
+       1949 (38)
+      </option>
+      <option value="1950">
+       1950 (39)
+      </option>
+      <option value="1951">
+       1951 (40)
+      </option>
+      <option value="1952">
+       1952 (41)
+      </option>
+      <option value="1953">
+       1953 (42)
+      </option>
+      <option value="1954">
+       1954 (43)
+      </option>
+      <option value="1955">
+       1955 (44)
+      </option>
+      <option value="1956">
+       1956 (45)
+      </option>
+      <option value="1957">
+       1957 (46)
+      </option>
+      <option value="1958">
+       1958 (47)
+      </option>
+      <option value="1959">
+       1959 (48)
+      </option>
+      <option value="1960">
+       1960 (49)
+      </option>
+      <option value="1961">
+       1961 (50)
+      </option>
+      <option value="1962">
+       1962 (51)
+      </option>
+      <option value="1963">
+       1963 (52)
+      </option>
+      <option value="1964">
+       1964 (53)
+      </option>
+      <option value="1965">
+       1965 (54)
+      </option>
+      <option value="1966">
+       1966 (55)
+      </option>
+      <option value="1967">
+       1967 (56)
+      </option>
+      <option value="1968">
+       1968 (57)
+      </option>
+      <option value="1969">
+       1969 (58)
+      </option>
+      <option value="1970">
+       1970 (59)
+      </option>
+      <option value="1971">
+       1971 (60)
+      </option>
+      <option value="1972">
+       1972 (61)
+      </option>
+      <option value="1973">
+       1973 (62)
+      </option>
+      <option value="1974">
+       1974 (63)
+      </option>
+      <option value="1975">
+       1975 (64)
+      </option>
+      <option value="1976">
+       1976 (65)
+      </option>
+      <option value="1977">
+       1977 (66)
+      </option>
+      <option value="1978">
+       1978 (67)
+      </option>
+      <option value="1979">
+       1979 (68)
+      </option>
+      <option value="1980">
+       1980 (69)
+      </option>
+      <option value="1981">
+       1981 (70)
+      </option>
+      <option value="1982">
+       1982 (71)
+      </option>
+      <option value="1983">
+       1983 (72)
+      </option>
+      <option value="1984">
+       1984 (73)
+      </option>
+      <option value="1985">
+       1985 (74)
+      </option>
+      <option value="1986">
+       1986 (75)
+      </option>
+      <option value="1987">
+       1987 (76)
+      </option>
+      <option value="1988">
+       1988 (77)
+      </option>
+      <option value="1989">
+       1989 (78)
+      </option>
+      <option value="1990">
+       1990 (79)
+      </option>
+      <option value="1991">
+       1991 (80)
+      </option>
+      <option value="1992">
+       1992 (81)
+      </option>
+      <option value="1993">
+       1993 (82)
+      </option>
+      <option value="1994">
+       1994 (83)
+      </option>
+      <option value="1995">
+       1995 (84)
+      </option>
+      <option value="1996">
+       1996 (85)
+      </option>
+      <option value="1997">
+       1997 (86)
+      </option>
+      <option value="1998">
+       1998 (87)
+      </option>
+      <option value="1999">
+       1999 (88)
+      </option>
+      <option value="2000">
+       2000 (89)
+      </option>
+      <option value="2001">
+       2001 (90)
+      </option>
+      <option value="2002">
+       2002 (91)
+      </option>
+      <option value="2003">
+       2003 (92)
+      </option>
+      <option value="2004">
+       2004 (93)
+      </option>
+      <option value="2005">
+       2005 (94)
+      </option>
+      <option value="2006">
+       2006 (95)
+      </option>
+      <option value="2007">
+       2007 (96)
+      </option>
+      <option value="2008">
+       2008 (97)
+      </option>
+      <option value="2009">
+       2009 (98)
+      </option>
+      <option value="2010">
+       2010 (99)
+      </option>
+      <option value="2011">
+       2011 (100)
+      </option>
+      <option value="2012">
+       2012 (101)
+      </option>
+      <option value="2013">
+       2013 (102)
+      </option>
+      <option value="2014">
+       2014 (103)
+      </option>
+      <option value="2015">
+       2015 (104)
+      </option>
+      <option value="2016">
+       2016 (105)
+      </option>
+      <option value="2017">
+       2017 (106)
+      </option>
+      <option value="2018">
+       2018 (107)
+      </option>
+      <option value="2019">
+       2019 (108)
+      </option>
+      <option selected="selected" value="2020">
+       2020 (109)
+      </option>
+      <option value="2021">
+       2021 (110)
+      </option>
+      <option value="2022">
+       2022 (111)
+      </option>
+      <option value="2023">
+       2023 (112)
+      </option>
+     </select>
+     年
+     <select class="ui-datepicker-month" data-event="change" data-handler="selectMonth">
+      <option value="0">
+       一月
+      </option>
+      <option value="1">
+       二月
+      </option>
+      <option value="2">
+       三月
+      </option>
+      <option value="3">
+       四月
+      </option>
+      <option value="4">
+       五月
+      </option>
+      <option value="5">
+       六月
+      </option>
+      <option value="6">
+       七月
+      </option>
+      <option value="7">
+       八月
+      </option>
+      <option value="8">
+       九月
+      </option>
+      <option value="9">
+       十月
+      </option>
+      <option value="10">
+       十一月
+      </option>
+      <option selected="selected" value="11">
+       十二月
+      </option>
+     </select>
+    </div>
+   </div>
+   <table class="ui-datepicker-calendar">
+    <thead>
+     <tr>
+      <th scope="col">
+       <span title="星期一">
+        一
+       </span>
+      </th>
+      <th scope="col">
+       <span title="星期二">
+        二
+       </span>
+      </th>
+      <th scope="col">
+       <span title="星期三">
+        三
+       </span>
+      </th>
+      <th scope="col">
+       <span title="星期四">
+        四
+       </span>
+      </th>
+      <th scope="col">
+       <span title="星期五">
+        五
+       </span>
+      </th>
+      <th class="ui-datepicker-week-end" scope="col">
+       <span title="星期六">
+        六
+       </span>
+      </th>
+      <th class="ui-datepicker-week-end" scope="col">
+       <span title="星期日">
+        日
+       </span>
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td class="ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        1
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        2
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        3
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        4
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        5
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        6
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        7
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        8
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        9
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        10
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        11
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        12
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        13
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        14
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        15
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        16
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        17
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        18
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        19
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        20
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        21
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        22
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        23
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        24
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        25
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        26
+       </a>
+      </td>
+      <td class="ui-datepicker-week-end" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        27
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        28
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        29
+       </a>
+      </td>
+      <td class="" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default" href="#">
+        30
+       </a>
+      </td>
+      <td class="ui-datepicker-days-cell-over ui-datepicker-current-day" data-event="click" data-handler="selectDay" data-month="11" data-year="2020">
+       <a class="ui-state-default ui-state-active ui-state-hover" href="#">
+        31
+       </a>
+      </td>
+      <td class="ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">
+      </td>
+      <td class="ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">
+      </td>
+      <td class="ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <div class="ui-datepicker-buttonpane ui-widget-content">
+    <button class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all" data-event="click" data-handler="today" type="button">
+     今天
+    </button>
+    <button class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" data-event="click" data-handler="hide" type="button">
+     取消
+    </button>
+   </div>
+  </div>
+ </body>
+</html>
