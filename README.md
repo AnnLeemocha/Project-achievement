@@ -8,3 +8,6 @@ Display of university, master's, and off-campus course achievements.
 + 2019 Taiwan Geosciences Assembly (TGA)
 + faculty of science valedictorian
 + Hua-gang model student
+
+## Other project exercises
++ Analysis of the number of pets in Taiwan (Python)
