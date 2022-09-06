@@ -1,0 +1,10 @@
+/*
+開發者：
+開發時間：
+*/
+public class Welcome{
+          // main：程式進入點 ， args：變數名稱
+	public static void main(String[] args){
+		System.out.print("Welcome to Java !");
+	}
+}
