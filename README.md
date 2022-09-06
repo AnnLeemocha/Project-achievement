@@ -11,3 +11,8 @@ Display of university, master's, and off-campus course achievements.
 
 ## Other project exercises
 + Analysis of the number of pets in Taiwan (Python)
+
+## Learning records
++ Java
++ MySQL
++ Python
